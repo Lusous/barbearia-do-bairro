@@ -29,3 +29,13 @@ flutter run
 ```
 
 > O MVP utiliza dados fictícios nesta primeira versão. A integração com Supabase pode ser adicionada em uma etapa posterior.
+
+## Tecnologias
+
+- Flutter
+- Dart
+- Material UI
+
+## Qualidade
+
+O projeto possui integração contínua com GitHub Actions, realizando análise estática do código e execução de testes automatizados a cada alteração.
