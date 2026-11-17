@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 void main() {
   runApp(const BarbeariaApp());
@@ -255,7 +255,7 @@ class _BookingPageState extends State<BookingPage> {
             ),
             const SizedBox(height: 12),
             DropdownButtonFormField<Service>(
-              value: selectedService,
+   initialValue: selectedService,
               decoration: const InputDecoration(labelText: 'Serviço'),
               items: services
                   .map(
