@@ -1,0 +1,26 @@
+name: Monitoramento da Aplicação
+
+on:
+  schedule:
+    - cron: "*/15 * * * *"
+  workflow_dispatch:
+
+jobs:
+  health-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Verificar disponibilidade da aplicação
+        run: |
+          URL="https://lusous.github.io/barbearia-do-bairro/"
+          STATUS=$(curl -L -s -o /dev/null -w "%{http_code}" "$URL")
+
+          echo "URL: $URL"
+          echo "HTTP Status: $STATUS"
+
+          if [ "$STATUS" -eq 200 ]; then
+            echo "Aplicação ONLINE - status UP"
+          else
+            echo "Aplicação INDISPONÍVEL - status DOWN"
+            exit 1
+          fi
