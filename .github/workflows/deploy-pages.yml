@@ -25,6 +25,9 @@ jobs:
           channel: stable
           cache: true
 
+      - name: Configure Flutter Web
+        run: flutter create . --platforms web
+
       - name: Install dependencies
         run: flutter pub get
 
@@ -36,6 +39,9 @@ jobs:
 
       - name: Build Flutter Web
         run: flutter build web --release --base-href "/barbearia-do-bairro/"
+
+      - name: Setup GitHub Pages
+        uses: actions/configure-pages@v5
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v4
